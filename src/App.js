@@ -46,7 +46,9 @@ function App() {
 
       try {
         const userResult = await JoblyApi.getUser({username});
+        console.log(userResult);
         setUserData(userResult);
+
       } catch (err) {
         console.log('fetchUserData', err);
         //TODO: display error message somewhere?
