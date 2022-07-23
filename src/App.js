@@ -45,8 +45,7 @@ function App() {
       console.log("useEffect", username);
 
       try {
-        const userResult = await JoblyApi.getUser({username});
-        console.log(userResult);
+        const userResult = await JoblyApi.getUser({username, token});
         setUserData(userResult);
 
       } catch (err) {
@@ -88,12 +87,6 @@ function App() {
     );
     window.localStorage.setItem("jobly-token", token);
     setToken(window.localStorage.get('jobly-token'));
-    // FIXME: move to API, localStorage incoming.
-    setUserData({
-      username,
-      user: {},
-      token
-    });
   }
 
   // We check if a user is logged in via context
